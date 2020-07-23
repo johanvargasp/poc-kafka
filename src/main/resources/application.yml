@@ -1,0 +1,21 @@
+server:
+  port: 9000
+  servlet:
+    contextPath: /poc-kafka-api/v1
+
+spring:
+  kafka:
+    consumer:
+      # change this property if you are using your own
+      # Kafka cluster or your Docker IP is different
+      # It use is local use localhost:9092 consumer and
+      # producer
+      bootstrap-servers: kafka:9092
+      group-id: group-id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: kafka:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
